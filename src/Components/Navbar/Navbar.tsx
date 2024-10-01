@@ -1,6 +1,31 @@
+"use client"
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 const Navbar = () => {
+    // const navItems = <>
+    //     <li><Link href={'/'}>Home</Link></li>
+    //     <li><Link href={'/blogs'}>Blogs</Link></li>
+    //     <li><Link href={'/comments'}>Comments</Link></li>
+    // </>
+    const pathName = usePathname()
+    console.log(pathName);
+
+    const navlist = [
+        {
+            path: "/",
+            title: "Home"
+        },
+        {
+            path: "/blogs",
+            title: "Blogs"
+        },
+        {
+            path: "/comments",
+            title: "Comments"
+        },
+    ]
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -22,32 +47,18 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        {
+                            navlist.map((nav, idx) => <li key={idx}><Link href={nav.path} className={`${pathName == nav.path ? "text-red-400" : null}`}>{nav.title}</Link></li>)
+                        }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-2xl"> Basic Next-JS</a>
+                <a className="btn btn-ghost text-2xl -ml-5"> Basic Next-JS</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
+                    {
+                        navlist.map((nav, idx) => <li key={idx}><Link href={nav.path} className={`${pathName == nav.path ? "text-red-400" : null}`}>{nav.title}</Link></li>)
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
