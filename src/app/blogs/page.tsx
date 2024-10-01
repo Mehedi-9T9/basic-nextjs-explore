@@ -14,6 +14,7 @@ const blogsPage = async () => {
 
 
     }
+    // throw new Error("This is custom error")
 
     return (
         <div>
