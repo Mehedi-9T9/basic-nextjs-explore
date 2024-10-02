@@ -7,6 +7,12 @@ import { Headland_One, Inter } from 'next/font/google'
 const inter = Inter({ weight: ['400'], subsets: ['latin'] })
 const headland = Headland_One({ weight: ['400'], subsets: ['latin'] })
 
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Basic Next JS || Comments',
+    description: 'This is comments description',
+}
+
 
 const commentsPage = () => {
     // throw new Error("comment error")
