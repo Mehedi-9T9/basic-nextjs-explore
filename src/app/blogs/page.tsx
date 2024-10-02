@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import getAllBlogs from "@/lib/getAllData/getAllBlogs"
 
 const blogsPage = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const blogs = await data.json();
-    const sliceBlogs = blogs.slice(0, 10)
+    const data = await getAllBlogs()
+    const sliceBlogs = data.slice(0, 10)
 
     interface blog {
         userId: number,

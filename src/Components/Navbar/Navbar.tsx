@@ -25,6 +25,11 @@ const Navbar = () => {
             path: "/comments",
             title: "Comments"
         },
+
+        {
+            path: "/posts",
+            title: "Posts"
+        },
     ]
     return (
         <div className="navbar bg-base-100">
